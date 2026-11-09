@@ -1,0 +1,152 @@
+ <!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>GameWorld | GTA V</title>
+    <link rel="stylesheet" href="style.css">
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        .container-game { max-width: 1400px; margin: 40px auto; padding: 0 40px; flex: 1; }
+        
+        .game-main-info { display: grid; grid-template-columns: 2fr 1fr; gap: 40px; margin-bottom: 40px; }
+        
+        .game-image { width: 100%; border-radius: 12px; border: 1px solid var(--border); margin-bottom: 20px; }
+        .game-title { font-size: 38px; margin-bottom: 10px; }
+        .game-dev { color: var(--text-sec); margin-bottom: 15px; }
+        .tags-row { display: flex; gap: 10px; margin-bottom: 20px; }
+        .tag { background: var(--bg-sec); border: 1px solid var(--border); padding: 6px 12px; border-radius: 20px; font-size: 12px; color: var(--text-sec); }
+        
+        /* Box de Compra Lateral */
+        .buy-box { background: var(--bg-sec); border: 1px solid var(--border); border-radius: 12px; padding: 25px; height: fit-content; position: sticky; top: 100px; }
+        .buy-box h3 { font-size: 18px; margin-bottom: 20px; }
+        .buy-price { display: flex; align-items: center; gap: 15px; margin-bottom: 25px; }
+        .buy-price .price-new { font-size: 28px; }
+        
+        /* Tabs */
+        .tabs { display: flex; gap: 30px; border-bottom: 1px solid var(--border); margin-bottom: 25px; }
+        .tab { padding-bottom: 15px; color: var(--text-sec); cursor: pointer; font-weight: 500; transition: 0.3s; }
+        .tab.active { color: var(--text-main); border-bottom: 2px solid var(--purple); }
+        
+        .tab-content { background: var(--bg-sec); border: 1px solid var(--border); border-radius: 12px; padding: 30px; }
+        .tab-content p { color: var(--text-sec); line-height: 1.6; margin-bottom: 20px; }
+        
+        .sys-req { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; }
+        .sys-req div h4 { margin-bottom: 10px; color: var(--text-main); }
+        .sys-req div p { font-size: 13px; line-height: 1.8; margin-bottom: 5px; }
+    </style>
+</head>
+<body>
+    <header>
+    <div class="logo">🎮 GAME<span>WORLD</span></div>
+    <nav>
+        <a href="index.html">Início</a>
+        <a href="loja.html">Loja</a>
+        <a href="comunidade.html">Comunidade</a>  
+        <a href="lista.html">Lista de Desejos</a>  
+        <a href="suporte.html" class="active">Suporte</a>
+    </nav>
+    <div class="header-actions">
+        <div class="search-box">
+            <span>🔍</span>
+            <input type="text" placeholder="Buscar jogos...">
+        </div>
+        <a href="carrinho.html" class="icon-btn">🛒</a>
+        <a href="cadastro.html" class="icon-btn">👤</a>
+    </div>
+</header>
+
+    <div class="container-game">
+        <div class="game-main-info">
+            <div class="info-left">
+                <img src="https://cdn.cloudflare.steamstatic.com/steam/apps/271590/header.jpg" class="game-image">
+                <h1 class="game-title">Grand Theft Auto V</h1>
+                <p class="game-dev">Rockstar Games</p>
+                <div class="tags-row">
+                    <span class="tag">Ação</span>
+                    <span class="tag">Aventura</span>
+                    <span class="tag">Mundo Aberto</span>
+                </div>
+            </div>
+            
+            <div class="info-right">
+                <div class="buy-box">
+                    <img src="https://cdn.cloudflare.steamstatic.com/steam/apps/271590/header.jpg" style="width: 100%; border-radius: 8px; margin-bottom: 20px;">
+                    <div class="buy-price">
+                        <span class="tag-discount">-60%</span>
+                        <span class="price-old" style="font-size: 16px;">R$ 249,00</span>
+                        <span class="price-new">R$ 99,90</span>
+                    </div>
+                    <button class="btn" style="width: 100%; font-size: 16px; margin-bottom: 15px;">🛒 Adicionar ao carrinho</button>
+                    <div style="text-align: center; color: var(--text-sec); font-size: 12px;">Compra segura. Seus dados estão protegidos.</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="tabs">
+            <div class="tab active">Descrição</div>
+            <div class="tab">Requisitos do sistema</div>
+            <div class="tab">Avaliações</div>
+        </div>
+
+        <div class="tab-content">
+            <h2 style="margin-bottom: 15px;">Sobre este jogo</h2>
+            <p>Grand Theft Auto V é um jogo de ação e aventura em mundo aberto, com uma história envolvente, três protagonistas jogáveis e um vasto ambiente para explorar. Entre no submundo do crime de Los Santos, onde cada escolha pode mudar o seu destino.</p>
+            
+            <div class="sys-req" style="margin-top: 30px;">
+                <div>
+                    <h4>Mínimos</h4>
+                    <p>SO: Windows 10 64-bit</p>
+                    <p>Processador: Intel Core i5</p>
+                    <p>Memória: 8 GB de RAM</p>
+                    <p>Placa de vídeo: NVIDIA GTX 660 2GB</p>
+                </div>
+                <div>
+                    <h4>Recomendados</h4>
+                    <p>SO: Windows 11 64-bit</p>
+                    <p>Processador: Intel Core i7</p>
+                    <p>Memória: 16 GB de RAM</p>
+                    <p>Placa de vídeo: NVIDIA GTX 1060 6GB</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+   <footer>
+    <div class="footer-grid">
+        <div class="footer-col">
+            <div class="logo">🎮 GAME<span>WORLD</span></div>
+            <p>Mais que jogos, uma comunidade.</p>
+            <!-- ÍCONES  -->
+            <div class="social-links">
+                <a href="#" class="social-btn discord"><i class="fa-brands fa-discord"></i></a>
+                <a href="#" class="social-btn instagram"><i class="fa-brands fa-instagram"></i></a>
+                <a href="#" class="social-btn youtube"><i class="fa-brands fa-youtube"></i></a>
+                <a href="#" class="social-btn twitter"><i class="fa-brands fa-x-twitter"></i></a>
+                <a href="#" class="social-btn tiktok"><i class="fa-brands fa-tiktok"></i></a>
+            </div>
+        </div>
+        <div class="footer-col">
+            <h4>Links rápidos</h4>
+            <a href="index.html">Início</a>
+            <a href="loja.html">Loja</a>
+            <a href="comunidade.html">Comunidade</a>
+        </div>
+        <div class="footer-col">
+            <h4>Categorias</h4>
+            <a href="#">Ação</a>
+            <a href="#">RPG</a>
+            <a href="#">FPS</a>
+        </div>
+        <div class="footer-col">
+            <h4>Newsletter</h4>
+            <p>Receba novidades e ofertas exclusivas.</p>
+            <div style="display: flex; gap: 10px;">
+                <input type="email" placeholder="Seu e-mail" style="padding: 10px; border-radius: 6px; border: 1px solid var(--border); background: var(--bg-main); color: white; outline: none; width: 100%;">
+                <button class="btn" style="padding: 10px 15px;">➔</button>
+            </div>
+        </div>
+    </div>
+    <div class="footer-bottom">© 2025 GameWorld. Todos os direitos reservados.</div>
+</footer>
+</body>
+</html>

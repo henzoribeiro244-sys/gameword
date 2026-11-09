@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>GameWorld | Suporte</title>
+    <link rel="stylesheet" href="style.css">
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        .support-container { max-width: 1200px; margin: 40px auto; padding: 0 40px; flex: 1; }
+        
+        /* Banner Hero */
+        .support-hero { background: linear-gradient(135deg, rgba(13,18,34,0.9), rgba(139,44,255,0.2)), url('https://images.unsplash.com/photo-1552820728-8b83bb6b773f?q=80&w=1200&auto=format&fit=crop') center/cover; border-radius: 12px; padding: 50px; border: 1px solid var(--border); margin-bottom: 30px; }
+        .support-hero h1 { font-size: 36px; margin-bottom: 10px; }
+        .support-hero p { color: var(--text-sec); font-size: 16px; }
+        
+        /* Grid de Informações */
+        .support-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin-bottom: 30px; }
+        .support-box { background: var(--bg-sec); border: 1px solid var(--border); border-radius: 12px; padding: 30px; }
+        .support-box h2 { font-size: 20px; margin-bottom: 15px; display: flex; align-items: center; gap: 10px; }
+        .support-box p { color: var(--text-sec); line-height: 1.6; font-size: 14px; margin-bottom: 20px; }
+        
+        /* Ícones de Benefícios */
+        .features { display: flex; justify-content: space-between; margin-top: 30px; }
+        .feature-item { text-align: center; font-size: 12px; color: var(--text-sec); }
+        .feature-item span { display: flex; width: 50px; height: 50px; background: rgba(139,44,255,0.1); border: 1px solid var(--purple); border-radius: 10px; align-items: center; justify-content: center; font-size: 24px; margin: 0 auto 10px; }
+        
+        /* Formulário */
+        .form-group { margin-bottom: 15px; }
+        .form-group input, .form-group textarea { width: 100%; padding: 12px 15px; background: var(--bg-main); border: 1px solid var(--border); color: white; border-radius: 8px; outline: none; font-family: inherit; transition: 0.3s; }
+        .form-group input:focus, .form-group textarea:focus { border-color: var(--purple); box-shadow: 0 0 10px rgba(139, 44, 255, 0.2); }
+        
+        /* Redes Sociais */
+        .social-links { display: flex; gap: 15px; margin-top: 20px; }
+        .social-links a { width: 45px; height: 45px; display: flex; align-items: center; justify-content: center; background: var(--bg-main); border: 1px solid var(--border); border-radius: 8px; font-size: 20px; transition: 0.3s; }
+        .social-links a:hover { border-color: var(--purple); color: var(--purple-light); transform: translateY(-3px); }
+
+        @media (max-width: 768px) { .support-grid { grid-template-columns: 1fr; } }
+    </style>
+</head>
+<body>
+   <header>
+    <div class="logo">🎮 GAME<span>WORLD</span></div>
+    <nav>
+        <a href="index.html">Início</a>
+        <a href="loja.html">Loja</a>
+        <a href="comunidade.html">Comunidade</a>
+        <a href="lista.html">Lista de Desejos</a> 
+        <a href="suporte.html" class="active">Suporte</a>
+    </nav>
+    <div class="header-actions">
+        <div class="search-box">
+            <span>🔍</span>
+            <input type="text" placeholder="Buscar jogos...">
+        </div>
+        <a href="carrinho.html" class="icon-btn">🛒</a>
+        <a href="cadastro.html" class="icon-btn">👤</a>
+    </div>
+</header>
+
+    <div class="support-container">
+        <div class="support-hero">
+            <h1>Sobre a <span style="color: var(--purple-light);">GameWorld</span></h1>
+            <p>Mais do que uma loja, somos uma comunidade de jogadores.</p>
+        </div>
+
+        <div class="support-grid">
+            <!-- Sobre Nós -->
+            <div class="support-box">
+                <h2>🎮 Sobre nós</h2>
+                <p>A GameWorld é uma plataforma digital criada para conectar jogadores de todo o mundo. Aqui você encontra os melhores jogos, com preços acessíveis, uma comunidade ativa e todo o suporte para ter a melhor experiência possível.</p>
+                
+                <div class="features">
+                    <div class="feature-item"><span>🛡️</span>Jogos Originais</div>
+                    <div class="feature-item"><span>⚡</span>Compras Rápidas</div>
+                    <div class="feature-item"><span>👥</span>Comunidade</div>
+                    <div class="feature-item"><span>🎧</span>Suporte 24h</div>
+                </div>
+            </div>
+
+            <!-- Contato -->
+            <div class="support-box">
+                <h2>✉️ Entre em contato</h2>
+                <p>Tem alguma dúvida, sugestão ou precisa de ajuda? Nossa equipe está pronta para te atender.</p>
+                <form>
+                    <div class="form-group"><input type="text" placeholder="Seu nome"></div>
+                    <div class="form-group"><input type="email" placeholder="Seu e-mail"></div>
+                    <div class="form-group"><textarea rows="4" placeholder="Sua mensagem"></textarea></div>
+                    <button type="button" class="btn" style="width: 100%;">Enviar Mensagem ➔</button>
+                </form>
+            </div>
+        </div>
+
+        
+
+            <!-- FAQ -->
+            <div class="support-box">
+                <h2>❓ Suporte FAQ</h2>
+                <p>Antes de entrar em contato, confira nossas perguntas frequentes. Talvez sua dúvida já esteja respondida!</p>
+                <button class="btn btn-outline" style="width: 100%;">Acessar Central de Ajuda</button>
+            </div>
+        </div>
+    </div>
+
+   <footer>
+    <div class="footer-grid">
+        <div class="footer-col">
+            <div class="logo">🎮 GAME<span>WORLD</span></div>
+            <p>Mais que jogos, uma comunidade.</p>
+            <!-- ÍCONES  -->
+            <div class="social-links">
+                <a href="#" class="social-btn discord"><i class="fa-brands fa-discord"></i></a>
+                <a href="#" class="social-btn instagram"><i class="fa-brands fa-instagram"></i></a>
+                <a href="#" class="social-btn youtube"><i class="fa-brands fa-youtube"></i></a>
+                <a href="#" class="social-btn twitter"><i class="fa-brands fa-x-twitter"></i></a>
+                <a href="#" class="social-btn tiktok"><i class="fa-brands fa-tiktok"></i></a>
+            </div>
+        </div>
+        <div class="footer-col">
+            <h4>Links rápidos</h4>
+            <a href="index.html">Início</a>
+            <a href="loja.html">Loja</a>
+            <a href="comunidade.html">Comunidade</a>
+        </div>
+        <div class="footer-col">
+            <h4>Categorias</h4>
+            <a href="#">Ação</a>
+            <a href="#">RPG</a>
+            <a href="#">FPS</a>
+        </div>
+        <div class="footer-col">
+            <h4>Newsletter</h4>
+            <p>Receba novidades e ofertas exclusivas.</p>
+            <div style="display: flex; gap: 10px;">
+                <input type="email" placeholder="Seu e-mail" style="padding: 10px; border-radius: 6px; border: 1px solid var(--border); background: var(--bg-main); color: white; outline: none; width: 100%;">
+                <button class="btn" style="padding: 10px 15px;">➔</button>
+            </div>
+        </div>
+    </div>
+    <div class="footer-bottom">© 2025 GameWorld. Todos os direitos reservados.</div>
+</footer>
+</body>
+</html>

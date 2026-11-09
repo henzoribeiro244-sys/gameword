@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>GameWorld | Comunidade</title>
+    <link rel="stylesheet" href="style.css">
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        .forum-layout { display: grid; grid-template-columns: 200px 1fr 280px; gap: 30px; max-width: 1600px; margin: 30px auto; padding: 0 40px; flex: 1; }
+        
+        /* Menu Lateral Esquerdo */
+        .forum-menu a { display: flex; align-items: center; gap: 10px; padding: 12px 15px; border-radius: 8px; color: var(--text-sec); margin-bottom: 5px; transition: 0.2s; font-size: 14px; font-weight: 500;}
+        .forum-menu a:hover { background: var(--bg-card); color: var(--text-main); }
+        .forum-menu a.active { background: var(--purple); color: white; }
+
+        /* Feed Principal */
+        .forum-feed h2 { margin-bottom: 20px; font-size: 22px; }
+        .topic { background: var(--bg-sec); border: 1px solid var(--border); border-radius: 10px; padding: 20px; display: flex; gap: 15px; margin-bottom: 15px; transition: 0.3s; cursor: pointer; }
+        .topic:hover { border-color: var(--purple); transform: translateX(5px); }
+        .topic-avatar { width: 45px; height: 45px; border-radius: 50%; background: var(--bg-card); display: flex; align-items: center; justify-content: center; font-size: 20px; flex-shrink: 0; }
+        .topic-content h3 { font-size: 16px; margin-bottom: 5px; display: flex; align-items: center; gap: 10px; flex-wrap: wrap;}
+        .topic-tag { font-size: 11px; background: rgba(139, 44, 255, 0.2); color: var(--purple-light); padding: 3px 8px; border-radius: 12px; }
+        .topic-content p { color: var(--text-sec); font-size: 13px; margin-bottom: 12px; line-height: 1.5; }
+        .topic-meta { display: flex; gap: 15px; color: var(--text-sec); font-size: 12px; }
+
+        /* Sidebar Direita */
+        .sidebar-box { background: var(--bg-sec); border: 1px solid var(--border); border-radius: 10px; padding: 20px; margin-bottom: 20px; }
+        .sidebar-box h3 { font-size: 15px; margin-bottom: 15px; border-bottom: 1px solid var(--border); padding-bottom: 10px; }
+        .user-online { display: flex; align-items: center; gap: 10px; margin-bottom: 15px; font-size: 14px; }
+        .status-dot { color: var(--green); font-size: 10px; }
+    </style>
+</head>
+<body>
+   <header>
+    <div class="logo">🎮 GAME<span>WORLD</span></div>
+    <nav>
+        <a href="index.html">Início</a>
+        <a href="loja.html">Loja</a>
+        <a href="comunidade.html">Comunidade</a>
+        <a href="lista.html">Lista de Desejos</a> 
+        <a href="suporte.html" class="active">Suporte</a>
+    </nav>
+    <div class="header-actions">
+        <div class="search-box">
+            <span>🔍</span>
+            <input type="text" placeholder="Buscar jogos...">
+        </div>
+        <a href="carrinho.html" class="icon-btn">🛒</a>
+        <a href="cadastro.html" class="icon-btn">👤</a>
+    </div>
+</header>
+
+    <div class="forum-layout">
+        <aside class="forum-menu">
+            <a href="#" class="active">💬 Fórum</a>
+            <a href="#">📝 Publicações</a>
+            <a href="#">💭 Comentários</a>
+            <a href="#">⭐ Avaliações</a>
+            <a href="#">📌 Discussões</a>
+        </aside>
+
+        <main class="forum-feed">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+                <h2>Fórum da Comunidade</h2>
+                <button class="btn" style="padding: 8px 15px; font-size: 14px;">+ Novo Tópico</button>
+            </div>
+
+            <div class="topic">
+                <div class="topic-avatar">👩🏻</div>
+                <div class="topic-content">
+                    <h3>Qual é o seu jogo favorito da GameWorld? <span class="topic-tag">Discussão</span></h3>
+                    <p>Vamos ver qual jogo da loja é o favorito da comunidade! (Eu começo: Red Dead Redemption 2!)</p>
+                    <div class="topic-meta">
+                        <span>🌸 LunaStark</span>
+                        <span>⏱ Há 2 horas</span>
+                        <span>💬 342 respostas</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="topic">
+                <div class="topic-avatar">🧔🏻</div>
+                <div class="topic-content">
+                    <h3>Dicas para zerar Elden Ring <span class="topic-tag">Dicas</span></h3>
+                    <p>Alguém tem dicas de build, armas ou onde encontrar certos itens? Tô travado no chefe final...</p>
+                    <div class="topic-meta">
+                        <span>🔥 Raven_19</span>
+                        <span>⏱ Há 5 horas</span>
+                        <span>💬 156 respostas</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="topic">
+                <div class="topic-avatar">👩🏽</div>
+                <div class="topic-content">
+                    <h3>Comunidade de fãs de Cyberpunk 2077 <span class="topic-tag">Fã Clube</span></h3>
+                    <p>Vamos compartilhar prints, teorias e curiosidades sobre o universo de Night City!</p>
+                    <div class="topic-meta">
+                        <span>🌺 KiraSoul</span>
+                        <span>⏱ Há 7 horas</span>
+                        <span>💬 248 respostas</span>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <aside>
+            <div class="sidebar-box">
+                <h3>Usuários online</h3>
+                <div class="user-online"><span class="status-dot">●</span> LunaStark</div>
+                <div class="user-online"><span class="status-dot">●</span> Raven_19</div>
+                <div class="user-online"><span class="status-dot">●</span> KiraSoul</div>
+                <div class="user-online"><span class="status-dot">●</span> FelixGamer</div>
+            </div>
+        </aside>
+    </div>
+<footer>
+    <div class="footer-grid">
+        <div class="footer-col">
+            <div class="logo">🎮 GAME<span>WORLD</span></div>
+            <p>Mais que jogos, uma comunidade.</p>
+            <!-- ÍCONES  -->
+            <div class="social-links">
+                <a href="#" class="social-btn discord"><i class="fa-brands fa-discord"></i></a>
+                <a href="#" class="social-btn instagram"><i class="fa-brands fa-instagram"></i></a>
+                <a href="#" class="social-btn youtube"><i class="fa-brands fa-youtube"></i></a>
+                <a href="#" class="social-btn twitter"><i class="fa-brands fa-x-twitter"></i></a>
+                <a href="#" class="social-btn tiktok"><i class="fa-brands fa-tiktok"></i></a>
+            </div>
+        </div>
+        <div class="footer-col">
+            <h4>Links rápidos</h4>
+            <a href="index.html">Início</a>
+            <a href="loja.html">Loja</a>
+            <a href="comunidade.html">Comunidade</a>
+        </div>
+        <div class="footer-col">
+            <h4>Categorias</h4>
+            <a href="#">Ação</a>
+            <a href="#">RPG</a>
+            <a href="#">FPS</a>
+        </div>
+        <div class="footer-col">
+            <h4>Newsletter</h4>
+            <p>Receba novidades e ofertas exclusivas.</p>
+            <div style="display: flex; gap: 10px;">
+                <input type="email" placeholder="Seu e-mail" style="padding: 10px; border-radius: 6px; border: 1px solid var(--border); background: var(--bg-main); color: white; outline: none; width: 100%;">
+                <button class="btn" style="padding: 10px 15px;">➔</button>
+            </div>
+        </div>
+    </div>
+    <div class="footer-bottom">© 2025 GameWorld. Todos os direitos reservados.</div>
+</footer>
+</body>
+</html>

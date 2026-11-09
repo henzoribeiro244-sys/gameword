@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>GameWorld | Login e Cadastro</title>
+    <!-- Fonte e FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    
+    <style>
+        .auth-container {
+            flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center;
+            padding: 50px 20px;
+            background: radial-gradient(circle at 10% 20%, rgba(139, 44, 255, 0.15) 0%, transparent 40%),
+                        radial-gradient(circle at 90% 80%, rgba(139, 44, 255, 0.15) 0%, transparent 40%);
+        }
+        
+        .auth-header { text-align: center; margin-bottom: 30px; }
+        .auth-header h1 { font-size: 36px; margin-bottom: 10px; }
+        .auth-header h1 span { color: var(--purple-light); }
+        .auth-header p { color: var(--text-sec); }
+        
+        /* Container do formulário */
+        .auth-box {
+            background: rgba(13, 18, 34, 0.8); backdrop-filter: blur(10px);
+            border: 1px solid var(--border); border-radius: 12px; padding: 40px;
+            width: 100%; max-width: 500px; /* Largura fixa para ficar centralizado e bonito */
+            box-shadow: 0 15px 35px rgba(0,0,0,0.5);
+        }
+
+        /* --- ABAS --- */
+        .auth-tabs {
+            display: flex;
+            background: var(--bg-main);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 5px;
+            margin-bottom: 30px;
+        }
+
+        .tab-btn {
+            flex: 1;
+            padding: 12px;
+            background: transparent;
+            border: none;
+            color: var(--text-sec);
+            font-size: 15px;
+            font-weight: 600;
+            cursor: pointer;
+            border-radius: 6px;
+            transition: 0.3s;
+            font-family: inherit;
+        }
+
+        .tab-btn.active {
+            background: var(--purple);
+            color: white;
+            box-shadow: 0 4px 15px rgba(139, 44, 255, 0.3);
+        }
+
+        /* --- FORMULÁRIOS --- */
+        .form-section {
+            display: none; /* Esconde todos por padrão */
+            animation: fadeIn 0.4s ease-in-out;
+        }
+
+        .form-section.active {
+            display: block; /* Mostra apenas o que estiver ativo */
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .input-group { margin-bottom: 20px; position: relative; }
+        .input-group label { display: block; font-size: 14px; margin-bottom: 8px; color: var(--text-sec); }
+        .input-group input {
+            width: 100%; padding: 14px 15px; background: var(--bg-main);
+            border: 1px solid var(--border); border-radius: 8px; color: white; outline: none; transition: 0.3s;
+        }
+        .input-group input:focus { border-color: var(--purple); box-shadow: 0 0 10px rgba(139, 44, 255, 0.2); }
+        
+        /* Ícone de olho de esconder senha*/
+        .eye-icon {
+            position: absolute; right: 15px; top: 38px; cursor: pointer;
+            color: var(--text-sec); font-size: 18px; user-select: none;
+        }
+        .eye-icon:hover { color: white; }
+        
+        /* Mensagem de erro de senha */
+        .msg-erro { color: #ff4d6d; font-size: 12px; display: none; margin-top: 5px; }
+
+        .options { display: flex; justify-content: space-between; align-items: center; font-size: 13px; margin-bottom: 25px; color: var(--text-sec); }
+        .options a { color: var(--purple-light); }
+        .options label { display: flex; align-items: center; gap: 8px; cursor: pointer; }
+        
+        .divider { display: flex; align-items: center; text-align: center; color: var(--text-sec); font-size: 12px; margin: 25px 0; }
+        .divider::before, .divider::after { content: ''; flex: 1; border-bottom: 1px solid var(--border); }
+        .divider::before { margin-right: 15px; } .divider::after { margin-left: 15px; }
+        
+        .social-login { display: flex; flex-direction: column; gap: 10px; }
+        .btn-social { background: transparent; border: 1px solid var(--border); color: white; padding: 12px; border-radius: 8px; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 10px; transition: 0.3s; font-family: inherit;}
+        .btn-social:hover { background: var(--bg-card); border-color: var(--purple); }
+
+        /* Ajustes para o formulário no Celular */
+@media (max-width: 768px) {
+    .auth-container {
+        padding: 20px 15px; /* Diminui a margem de fora */
+    }
+    
+    .auth-box {
+        padding: 20px; /* Diminui a margem de dentro para os inputs crescerem */
+    }
+    
+    .auth-header h1 {
+        font-size: 26px; /* Diminui um pouco o título */
+    }
+    
+    .auth-header p {
+        font-size: 14px;
+    }
+}
+
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">🎮 GAME<span>WORLD</span></div>
+        <nav>
+            <a href="index.html">Início</a>
+            <a href="loja.html">Loja</a>
+            <a href="comunidade.html">Comunidade</a>
+            <a href="lista.html">Lista de Desejos</a>
+            <a href="suporte.html">Suporte</a>
+        </nav>
+        <div class="header-actions">
+            <a href="loja.html" class="icon-btn" style="width: auto; padding: 0 15px; border-radius: 20px;">↩ Voltar</a>
+        </div>
+    </header>
+
+    <div class="auth-container">
+        <div class="auth-header">
+            <h1>Bem-vindo à <span>GameWorld!</span></h1>
+            <p>Faça login na sua conta ou crie uma nova.</p>
+        </div>
+
+        <div class="auth-box">
+            <!-- BOTÕES DAS ABAS -->
+            <div class="auth-tabs">
+                <button class="tab-btn active" onclick="mudarAba('login')">Entrar</button>
+                <button class="tab-btn" onclick="mudarAba('cadastro')">Criar Conta</button>
+            </div>
+
+            <!-- ETAPA LOGIN -->
+            <div id="section-login" class="form-section active">
+                <form id="form-login">
+                    <div class="input-group">
+                        <label>E-mail</label>
+                        <input type="email" id="login-email" placeholder="Digite seu e-mail" required>
+                    </div>
+                    <div class="input-group">
+                        <label>Senha</label>
+                        <input type="password" id="login-senha" placeholder="Digite sua senha" required>
+                        <i class="fa-solid fa-eye-slash eye-icon" onclick="mostrarSenha('login-senha', this)"></i>
+                    </div>
+                    <div class="options">
+                        <label><input type="checkbox" style="accent-color: var(--purple);"> Lembrar de mim</label>
+                        <a href="#">Esqueceu sua senha?</a>
+                    </div>
+                    <button type="submit" class="btn" style="width: 100%;">Entrar <i class="fa-solid fa-arrow-right"></i></button>
+                </form>
+                
+                <div class="divider">ou</div>
+                <div class="social-login">
+                    <button class="btn-social" type="button"><i class="fa-brands fa-steam"></i> Entrar com Steam</button>
+                    <button class="btn-social" type="button"><i class="fa-brands fa-google"></i> Entrar com Google</button>
+                    <button class="btn-social" type="button"><i class="fa-brands fa-discord"></i> Entrar com Discord</button>
+                </div>
+            </div>
+
+            <!-- ETAPA CADASTRO -->
+            <div id="section-cadastro" class="form-section">
+                <form id="form-cadastro">
+                    <div class="input-group">
+                        <label>Nome de usuário</label>
+                        <input type="text" id="cad-nome" placeholder="Escolha um nome" required>
+                    </div>
+                    <div class="input-group">
+                        <label>E-mail</label>
+                        <input type="email" id="cad-email" placeholder="Digite seu e-mail" required>
+                    </div>
+                    <div class="input-group">
+                        <label>Senha</label>
+                        <input type="password" id="cad-senha" placeholder="Crie uma senha" required>
+                        <i class="fa-solid fa-eye-slash eye-icon" onclick="mostrarSenha('cad-senha', this)"></i>
+                    </div>
+                    <div class="input-group">
+                        <label>Confirmar senha</label>
+                        <input type="password" id="cad-confirmar" placeholder="Confirme sua senha" required>
+                        <i class="fa-solid fa-eye-slash eye-icon" onclick="mostrarSenha('cad-confirmar', this)"></i>
+                        <span id="erro-senha" class="msg-erro">As senhas não coincidem!</span>
+                    </div>
+                    <div class="options" style="justify-content: flex-start;">
+                        <label><input type="checkbox" required style="accent-color: var(--purple);"> Li e aceito os <a href="#">Termos de Uso</a>.</label>
+                    </div>
+                    <button type="submit" class="btn" style="width: 100%;">Cadastrar <i class="fa-solid fa-arrow-right"></i></button>
+                </form>
+                
+                <div class="divider">ou</div>
+                <div class="social-login">
+                    <button class="btn-social" type="button"><i class="fa-brands fa-google"></i> Cadastrar com Google</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-bottom">© 2025 GameWorld. Todos os direitos reservados.</div>
+    </footer>
+
+    
+    <script>
+        // 1. FUNÇÃO PARA MUDAR DE ABA 
+        function mudarAba(abaDesejada) {
+            // Pega todos os botões e remove a classe 'active' (roxo)
+            const botoes = document.querySelectorAll('.tab-btn');
+            botoes.forEach(btn => btn.classList.remove('active'));
+
+            // Pega todas as seções de formulário e esconde
+            const secoes = document.querySelectorAll('.form-section');
+            secoes.forEach(sec => sec.classList.remove('active'));
+
+            // Ativa a aba correta dependendo do clique
+            if (abaDesejada === 'login') {
+                botoes[0].classList.add('active');
+                document.getElementById('section-login').classList.add('active');
+            } else {
+                botoes[1].classList.add('active');
+                document.getElementById('section-cadastro').classList.add('active');
+            }
+        }
+
+        // 2. FUNÇÃO PARA MOSTRAR/OCULTAR A SENHA
+        function mostrarSenha(idInput, icone) {
+            const input = document.getElementById(idInput);
+            
+            if (input.type === "password") {
+                input.type = "text";
+                icone.classList.remove('fa-eye-slash');
+                icone.classList.add('fa-eye'); // Olho aberto
+            } else {
+                input.type = "password";
+                icone.classList.remove('fa-eye');
+                icone.classList.add('fa-eye-slash'); // Olho cerrado
+            }
+        }
+
+        // 3. VALIDAÇÃO DO CADASTRO
+        const formCadastro = document.getElementById("form-cadastro");
+        formCadastro.addEventListener("submit", function(event) {
+            event.preventDefault(); 
+            
+            const senha = document.getElementById("cad-senha").value;
+            const confirmarSenha = document.getElementById("cad-confirmar").value;
+            const msgErro = document.getElementById("erro-senha");
+            const inputConfirmar = document.getElementById("cad-confirmar");
+            
+            if (senha !== confirmarSenha) {
+                msgErro.style.display = "block";
+                inputConfirmar.style.borderColor = "#ff4d6d";
+            } else {
+                msgErro.style.display = "none";
+                inputConfirmar.style.borderColor = "var(--border)";
+                alert("🎉 Conta criada com sucesso!");
+                // window.location.href = "index.html";
+            }
+        });
+
+        // 4. SIMULAÇÃO DE LOGIN
+        document.getElementById("form-login").addEventListener("submit", function(event) {
+            event.preventDefault();
+            alert("Login realizado com sucesso!");
+            // window.location.href = "index.html";
+        });
+    </script>
+     <footer>
+    <div class="footer-grid">
+        <div class="footer-col">
+            <div class="logo">🎮 GAME<span>WORLD</span></div>
+            <p>Mais que jogos, uma comunidade.</p>
+            <!-- AQUI ESTÃO OS ÍCONES NOVOS -->
+            <div class="social-links">
+                <a href="#" class="social-btn discord"><i class="fa-brands fa-discord"></i></a>
+                <a href="#" class="social-btn instagram"><i class="fa-brands fa-instagram"></i></a>
+                <a href="#" class="social-btn youtube"><i class="fa-brands fa-youtube"></i></a>
+                <a href="#" class="social-btn twitter"><i class="fa-brands fa-x-twitter"></i></a>
+                <a href="#" class="social-btn tiktok"><i class="fa-brands fa-tiktok"></i></a>
+            </div>
+        </div>
+        <div class="footer-col">
+            <h4>Links rápidos</h4>
+            <a href="index.html">Início</a>
+            <a href="loja.html">Loja</a>
+            <a href="comunidade.html">Comunidade</a>
+        </div>
+        <div class="footer-col">
+            <h4>Categorias</h4>
+            <a href="#">Ação</a>
+            <a href="#">RPG</a>
+            <a href="#">FPS</a>
+        </div>
+        <div class="footer-col">
+            <h4>Newsletter</h4>
+            <p>Receba novidades e ofertas exclusivas.</p>
+            <div style="display: flex; gap: 10px;">
+                <input type="email" placeholder="Seu e-mail" style="padding: 10px; border-radius: 6px; border: 1px solid var(--border); background: var(--bg-main); color: white; outline: none; width: 100%;">
+                <button class="btn" style="padding: 10px 15px;">➔</button>
+            </div>
+        </div>
+    </div>
+    <div class="footer-bottom">© 2025 GameWorld. Todos os direitos reservados.</div>
+</footer>
+
+
+</body>
+</html>
